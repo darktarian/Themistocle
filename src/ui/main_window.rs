@@ -35,7 +35,9 @@ impl INI_FILE{
 static mut ini_file: INI_FILE = INI_FILE::new();
 */
 
-static INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
+lazy_static!{
+    static INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
+}
 
 pub fn init() {
      PathBuf::new();
