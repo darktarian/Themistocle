@@ -24,7 +24,6 @@ use std::path::PathBuf;
 
 lazy_static! {
     static ref PCAP: RwLock<Vec<Packet<'static>>> = RwLock::new(Vec::new());
-
 }
 
 
