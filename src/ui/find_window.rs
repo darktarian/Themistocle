@@ -150,8 +150,6 @@ pub fn init(text_view : Rc<TextView>) {
     });
 
 
-
-
 }
 
 fn search(text_buffer: &TextBuffer, motif: &str, tag_bg: &TextTag, tag_fg: &TextTag) {
