@@ -36,7 +36,7 @@ static mut ini_file: INI_FILE = INI_FILE::new();
 */
 
 lazy_static!{
-    static INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
+    static ref INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
 }
 
 pub fn init() {
