@@ -10,6 +10,7 @@ use std::io::{BufRead, BufReader, Read};
 use std::path::PathBuf;
 
 use std::rc::Rc;
+use std::sync::Mutex;
 use std::cell::RefCell;
 
 use utils;
@@ -34,6 +35,7 @@ impl INI_FILE{
 static mut ini_file: INI_FILE = INI_FILE::new();
 */
 
+static INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
 
 pub fn init() {
      PathBuf::new();
@@ -128,7 +130,8 @@ fn load_file_to_hex_str(window: &Window,conf: &mut Ini) -> Option<String> {
         let len = fs::metadata(&filename).unwrap().len() as usize;
 
         ////Gestion du INI
-        let mut ini_file = filename.clone();
+        let mut ini_file = INI_FILE.lock().unwrap();
+        ini_file.with_file_name(filename.clone());
         ini_file.set_extension("themistocle");
 /*
         unsafe {
