@@ -36,7 +36,7 @@ static mut ini_file: INI_FILE = INI_FILE::new();
 */
 
 lazy_static!{
-    static ref INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
+    pub static ref INI_FILE: Mutex<PathBuf> = Mutex::new(PathBuf::new());
 }
 
 pub fn init() {
@@ -85,7 +85,7 @@ pub fn init() {
 
     /*
     let text_view_shared_copy = text_view_shared.clone();
-    text_view.connect_move_cursor(move |_|{
+    text_view.connect_move_cursor(move |_,_,_,_|{
             carret_pos_label.set_text("plop");
 
     });

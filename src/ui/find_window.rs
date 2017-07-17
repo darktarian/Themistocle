@@ -11,6 +11,8 @@ use std::cell::RefCell;
 use utils;
 use cast::i32;
 
+use ui::main_window::INI_FILE;
+
 use std::{thread,time};
 
 static EMPTY_RGBA: RGBA = RGBA { red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0 };
@@ -37,6 +39,7 @@ pub fn init(text_view : Rc<TextView>) {
     window.show_all();
 
     //println!("plip");
+
 
     let text_view_shared = Rc::new(text_view);
     let text_view_shared_copy = text_view_shared.clone();
